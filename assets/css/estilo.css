@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+    color: #333333;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+.colorbarra{
+    background-image: linear-gradient(to right, #740274 0%, #d499ce  51%, #740274  100%);
+}
+
+
+footer{ 
+  padding: 1em;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+} 
+
+.perfil{
+    color: #fff; 
+}
+.logout{
+    color:#fff;
+}

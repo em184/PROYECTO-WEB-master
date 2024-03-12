@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unitylink</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <video autoplay muted loop id="video-bg">
+        <source src="/1055698457-preview.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+    
+<div class="container">
+    <h1><img src="/75404-test-apk-whatsapp-android-logo-download-hd-png-removebg-preview.png" alt="Logo" width="40" height="40">
+    Unitylink</h1>
+    <div id="message-list" class="message-container">
+        <!-- Aquí se mostrarán los mensajes -->
+    </div>
+    <form id="message-form">
+        <textarea id="message-input" placeholder="Escribe tu mensaje aquí"></textarea>
+        <br>
+        <button type="button" onclick="sendMessage()">Enviar</button>
+    </form>
+</div>
+
+<script>
+    function sendMessage() {
+        var messageInput = document.getElementById('message-input');
+        var message = messageInput.value.trim();
+        
+        if (message === '') {
+            alert('Por favor, escribe un mensaje');
+            return;
+        }
+        
+        addMessage(message, 'sender');
+
+        // Respuesta de la computadora
+        var response = generateResponse(message);
+        setTimeout(function() {
+            addMessage(response, 'receiver');
+        }, 1000);
+
+        // Limpiar el campo de entrada de mensajes
+        messageInput.value = '';
+    }
+
+    function addMessage(content, sender) {
+        var messageList = document.getElementById('message-list');
+        var newMessage = document.createElement('div');
+        newMessage.textContent = content;
+        newMessage.className = 'message ' + sender;
+        messageList.appendChild(newMessage);
+    }
+
+    function generateResponse(message) {
+        // Aquí puedes agregar lógica para generar una respuesta basada en el mensaje del usuario
+        // Por ahora, simplemente generamos una respuesta aleatoria
+        var responses = [
+            "hola",
+            "estoy muy bien gracias y tu?",
+            "me contenta",
+            "¡Entiendo lo que dices!",
+            "Eso suena interesante.",
+            "¿Puedes expandir más sobre eso?",
+            "Gracias por compartir tu opinión."
+            
+        ];
+        var randomIndex = Math.floor(Math.random() * responses.length);
+        return responses[randomIndex];
+    }
+</script>
+
+</body>
+</html>
